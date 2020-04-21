@@ -13,7 +13,7 @@ export class UserController {
 
     @Post("register")
     register(@Body() userdto: UserDTO) {
-        this.userService.createUser(userdto);
+        return this.userService.createUser(userdto);
     }
 
     @UseGuards(AuthGuard('local'))

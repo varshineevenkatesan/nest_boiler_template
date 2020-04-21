@@ -23,5 +23,6 @@ export class UsersService {
 
     createUser(userDTO: UserDTO) {
       this.users.push(userDTO)
+      return "Registration Successful"
     }
 }
