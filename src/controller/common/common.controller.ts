@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 import {SharedService} from '../../services/shared/shared.service';
-import { AuthGuard } from '@nestjs/passport';
+import { JwtAuthGuard } from '../../services/auth/jwt-auth.guard';
 
 
 @Controller('common')
@@ -8,6 +8,7 @@ export class CommonController {
 
     constructor(private sharedServices : SharedService){}
 
+    @UseGuards(JwtAuthGuard)
     @Get()
     getCommon(): string {
         return "home"
